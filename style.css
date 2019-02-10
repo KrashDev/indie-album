@@ -1,0 +1,22 @@
+body {
+  background-image: url("images/gplaypattern.png");
+  overflow-x: hidden;
+  /* overflow-y: hidden; */
+}
+
+
+.color1 {
+  background-color: #307c99;
+}
+.color2 {
+  background-color: #607c99;
+}
+.color3 {
+  background-color: #907c99;
+}
+.color4 {
+  background-color: #c07c99;
+}
+.color5 {
+  background-color: #f07c99;
+}
