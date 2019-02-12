@@ -4,19 +4,31 @@ body {
   /* overflow-y: hidden; */
 }
 
+.container {
+  display: flex;
+  justify-content: center;
+}
 
-.color1 {
-  background-color: #307c99;
+#main {
+  background: #ffffff;
+  margin-top: 3%;
+  height: 600px;
+  width: 600px;
+  box-shadow: 0 4px 20px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.2);
 }
-.color2 {
-  background-color: #607c99;
+
+#rage {
+  padding: 5px 10px;
+  border-radius: 5px;
 }
-.color3 {
-  background-color: #907c99;
+
+#raged {
+  padding: 5px 10px;
+  border-radius: 5px;
 }
-.color4 {
-  background-color: #c07c99;
-}
-.color5 {
-  background-color: #f07c99;
+
+#random-photo {
+  z-index: 10;
+  opacity: .3;
+  filter: grayscale(100%);
 }
