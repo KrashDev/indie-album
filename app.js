@@ -27,7 +27,9 @@ $(document).ready(function() {
   }
 
   //click button to change gradient
-  $('#rage').click(generate);
+  $('#gradient-ify').click(generate);
+
+  //--------------------------------------------------
 
   function randomPhoto() {
     var picArray = ['sign', 'light', 'city', 'forest', 'park', 'nature', 'calm', 'quiet', 'architecture', 'woman', 'man', 'fire', 'water', 'earth', 'sky', 'dog', 'cat', 'food', 'vegetable', 'winter', 'snow', 'animal', 'art'];
@@ -37,9 +39,40 @@ $(document).ready(function() {
   }
 
   //click button for random image
-  $('#raged').click(randomPhoto);
+  $('#image-ify').click(randomPhoto);
 
+  //--------------------------------------------------
 
+  function randomShape() {
+    var shapeArray = ['shape-1', 'shape-2', 'shape-3', 'shape-4', 'shape-5', 'shape-6', 'shape-7'];
+    var randShape = shapeArray[Math.floor(Math.random() * shapeArray.length)];
+    $('#random-shape').attr('src', 'images/' + randShape + '.svg');
+  }
+
+  //click button for random shape image
+  $('#shape-ify').click(randomShape);
+
+  //--------------------------------------------------
+
+  function randomName() {
+    var nameArray = ['Crepe Whistle', 'Tiara Tango', 'Doctorship', 'Hotdog Water', 'Friend Fries', 'Brobot', 'Victory Van', 'MockMeta', 'Chrome Couch', 'Vanilla Gorilla', 'Earfection', 'Ramen Party', 'Samurai Hi-hit', 'Shogun', 'Fruit of the Boom'];
+    var randName = nameArray[Math.floor(Math.random() * nameArray.length)];
+    $('#random-name').text(randName);
+  }
+
+  //click button for random name
+  $('#name-ify').click(randomName);
+
+  //--------------------------------------------------
+
+  function randomFont() {
+    var fontArray = ['"Montserrat", sans-serif', '"Poppins", sans-serif', '"Ubuntu", sans-serif', '"Pacifico", cursive', '"Dancing Script", cursive', '"Comfortaa", cursive', '"Permanent Marker", cursive', '"Satisfy", cursive', '"Caveat", cursive', '"Poiret One", cursive', '"Sacramento", cursive', '"Josefin Slab", serif', '"Raleway", sans-serif'];
+    var randFont = fontArray[Math.floor(Math.random() * fontArray.length)];
+    $('#random-name').css('font-family', randFont);
+  }
+
+  //click button for random shape image
+  $('#font-ify').click(randomFont);
 
   // unsplashed sends requests to https://api.unsplash.com/
 

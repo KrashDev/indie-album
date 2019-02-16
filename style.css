@@ -9,7 +9,24 @@ body {
   justify-content: center;
 }
 
+.controls {
+  position: absolute;
+  left: 2%;
+  top: 10%;
+  width: 400px;
+}
+
+.controls button {
+  font-size: 20px;
+  padding: 5px 10px;
+  margin: 5px;
+  border-radius: 10px;
+  box-shadow: 0 4px 20px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.2);
+}
+
 #main {
+  display: flex;
+  justify-content: center;
   background: #ffffff;
   margin-top: 3%;
   height: 600px;
@@ -17,18 +34,30 @@ body {
   box-shadow: 0 4px 20px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.2);
 }
 
-#rage {
+#rage, #raged, #enrage {
   padding: 5px 10px;
   border-radius: 5px;
 }
 
-#raged {
-  padding: 5px 10px;
-  border-radius: 5px;
+#random-shape {
+  margin-top: 3%;
+  height: 150px;
+  position: absolute;
+  z-index: 99;
+}
+
+#random-name {
+  font-family: 'Pacifico', cursive;
+  text-transform: lowercase;
+  margin-top: 25%;
+  font-size: 70px;
+  color: #ffffff;
+  position: absolute;
+  z-index: 99;
 }
 
 #random-photo {
-  z-index: 10;
+  z-index: 9;
   opacity: .3;
   filter: grayscale(100%);
 }
