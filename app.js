@@ -21,7 +21,7 @@ $(document).ready(function() {
 
     var gradient = "linear-gradient(" + angle + "deg, " + newColor1 + ", " + newColor2 + ")";
 
-    $("#main").css('background', gradient);
+    $(".main").css('background', gradient);
     // document.getElementById("output").innerHTML = gradient;
 
   }
@@ -73,6 +73,28 @@ $(document).ready(function() {
 
   //click button for random shape image
   $('#font-ify').click(randomFont);
+
+
+  function randofy() {
+    var timer = Math.floor(Math.random() * 4) + 1;
+    var xTimer = timer * 1000;
+    console.log(xTimer);
+    setInterval(function() {
+      randomShape();
+      generate();
+      randomPhoto();
+      randomFont();
+      randomName();
+    }, 1000);
+  }
+
+  $('#rain-ify').click(randofy);
+
+  setTimeout(function() {
+    var title = $('.main').clone().css('-webkit-transform', 'scale(.125, .125)');;
+    $('.album-clone').append(title);
+  }, 1000);
+
 
   // unsplashed sends requests to https://api.unsplash.com/
 
