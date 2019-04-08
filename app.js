@@ -22,6 +22,7 @@ $(document).ready(function() {
     var gradient = "linear-gradient(" + angle + "deg, " + newColor1 + ", " + newColor2 + ")";
 
     $(".main").css('background', gradient);
+    $("#gradient-ify").css('background', gradient);
     // document.getElementById("output").innerHTML = gradient;
 
   }
@@ -47,6 +48,8 @@ $(document).ready(function() {
     var shapeArray = ['shape-1', 'shape-2', 'shape-3', 'shape-4', 'shape-5', 'shape-6', 'shape-7'];
     var randShape = shapeArray[Math.floor(Math.random() * shapeArray.length)];
     $('#random-shape').attr('src', 'images/' + randShape + '.svg');
+    $('#shape-ify').append('<img>');
+    $('#shape-ify img').attr('src', 'images/' + randShape + '.svg');
   }
 
   //click button for random shape image
@@ -79,6 +82,9 @@ $(document).ready(function() {
     var timer = Math.floor(Math.random() * 4) + 1;
     var xTimer = timer * 1000;
     console.log(xTimer);
+    if ($(this).hasClass('active')) {
+      return;
+    }
     setInterval(function() {
       randomShape();
       generate();
@@ -86,14 +92,25 @@ $(document).ready(function() {
       randomFont();
       randomName();
     }, 1000);
+
+    $(this).toggleClass('active');
   }
 
   $('#rain-ify').click(randofy);
 
+  //clone Album
+  /*
+    setTimeout(function() {
+      var title = $('.main').clone().css('-webkit-transform', 'scale(.125, .125)');;
+      $('.album-clone').append(title);
+    }, 1000);
+  */
+  //inital set up
   setTimeout(function() {
-    var title = $('.main').clone().css('-webkit-transform', 'scale(.125, .125)');;
-    $('.album-clone').append(title);
-  }, 1000);
+    var buttonColor = $('.main').css('background');
+    $('button#gradient-ify').css('background', buttonColor);
+  }, 10);
+
 
 
   // unsplashed sends requests to https://api.unsplash.com/
