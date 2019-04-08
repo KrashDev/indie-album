@@ -36,7 +36,7 @@ $(document).ready(function() {
     var picArray = ['sign', 'light', 'city', 'forest', 'park', 'nature', 'calm', 'quiet', 'architecture', 'woman', 'man', 'fire', 'water', 'earth', 'sky', 'dog', 'cat', 'food', 'vegetable', 'winter', 'snow', 'animal', 'art'];
     var randPic = picArray[Math.floor(Math.random() * picArray.length)];
     // $('#random-photo').attr('src', 'https://api.unsplash.com/photos/?client_id=' + accessKey + '');
-    $('#random-photo').attr('src', 'https://source.unsplash.com/600x600/daily?' + randPic + '');
+    $('#random-photo img').attr('src', 'https://source.unsplash.com/600x600/daily?' + randPic + '');
   }
 
   //click button for random image
@@ -47,9 +47,7 @@ $(document).ready(function() {
   function randomShape() {
     var shapeArray = ['shape-1', 'shape-2', 'shape-3', 'shape-4', 'shape-5', 'shape-6', 'shape-7'];
     var randShape = shapeArray[Math.floor(Math.random() * shapeArray.length)];
-    $('#random-shape').attr('src', 'images/' + randShape + '.svg');
-    $('#shape-ify').append('<img>');
-    $('#shape-ify img').attr('src', 'images/' + randShape + '.svg');
+    $('#random-shape img').attr('src', 'images/' + randShape + '.svg');
   }
 
   //click button for random shape image
@@ -109,6 +107,8 @@ $(document).ready(function() {
   setTimeout(function() {
     var buttonColor = $('.main').css('background');
     $('button#gradient-ify').css('background', buttonColor);
+    var randShape = $('#random-shape').find('img').clone();
+    $('#shape-ify').append(randShape);
   }, 10);
 
 
