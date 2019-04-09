@@ -123,8 +123,24 @@ body {
   height: 40px;
 }
 
-#rain-ify img {
+#play-it img {
+  margin-left: -10%;
   height: 50px;
+  justify-content: center;
+}
+
+#randomize {
+  font-size: 40px;
+  font-family: auto;
+  text-transform: capitalize;
+  color: #ffffff;
+}
+
+#rain-ify img {
+  margin-left: -10%;
+  height: 50px;
+  justify-content: center;
+  margin-top: 3%;
 }
 
 #font-ify, #name-ify {
