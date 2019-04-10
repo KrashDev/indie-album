@@ -4,9 +4,14 @@ body {
   /* overflow-y: hidden; */
 }
 
+@import url('https://fonts.googleapis.com/css?family=Caveat|Comfortaa|Dancing+Script|Josefin+Slab|Libre+Barcode+39+Text|Montserrat|Pacifico|Permanent+Marker|Poiret+One|Poppins|Raleway|Sacramento|Satisfy|Ubuntu');
 .container {
   display: flex;
   justify-content: center;
+}
+
+.montserrat {
+  font-family: 'Raleway', cursive;
 }
 
 .controls {
@@ -81,7 +86,7 @@ body {
   color: #666;
 }
 
-.main {
+#main {
   display: flex;
   justify-content: center;
   background: #ffffff;
@@ -150,7 +155,7 @@ body {
   font-size: 30px;
 }
 
-.album-clone .main {
+.album-clone #main {
   position: absolute;
   top: 10%;
   left: 20%;
@@ -186,5 +191,5 @@ body {
 #random-photo {
   z-index: 9;
   opacity: .3;
-  filter: grayscale(100%);
+  /* filter: grayscale(100%); */
 }

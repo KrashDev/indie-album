@@ -17,14 +17,20 @@ $(document).ready(function() {
 
     var newColor1 = populate('#');
     var newColor2 = populate('#');
-    var angle = Math.round(Math.random() * 360);
+    var angles = {
+      x1: '0',
+      x2: '0',
+      y1: '600',
+      y2: '600'
+    }
+    // var angle = Math.round(Math.random() * 360);
+    // var angle = angles[~~(Math.random() * angles.length)]
+    // var gradient = "linear-gradient(" + angle + "deg, " + newColor1 + ", " + newColor2 + ")";
 
-    var gradient = "linear-gradient(" + angle + "deg, " + newColor1 + ", " + newColor2 + ")";
-
-    $(".main").css('background', gradient);
-    $("#gradient-ify").css('background', gradient);
+    // $("#main").css('background', gradient);
+    // $("#gradient-ify").css('background', gradient);
     // document.getElementById("output").innerHTML = gradient;
-
+    return [newColor1, newColor2, angles];
   }
 
   //click button to change gradient
@@ -47,7 +53,7 @@ $(document).ready(function() {
   function randomShape() {
     var shapeArray = ['shape-1', 'shape-2', 'shape-3', 'shape-4', 'shape-5', 'shape-6', 'shape-7'];
     var randShape = shapeArray[Math.floor(Math.random() * shapeArray.length)];
-    $('#random-shape img').attr('src', 'images/' + randShape + '.svg');
+    return 'images/' + randShape + '.svg';
   }
 
   //click button for random shape image
@@ -58,7 +64,7 @@ $(document).ready(function() {
   function randomName() {
     var nameArray = ['Crepe Whistle', 'Tiara Tango', 'Doctorship', 'Hotdog Water', 'Friend Fries', 'Brobot', 'Victory Van', 'MockMeta', 'Chrome Couch', 'Vanilla Gorilla', 'Earfection', 'Ramen Party', 'Samurai Hi-hit', 'Shogun', 'Fruit of the Boom'];
     var randName = nameArray[Math.floor(Math.random() * nameArray.length)];
-    $('#random-name').text(randName);
+    return randName;
   }
 
   //click button for random name
@@ -69,7 +75,7 @@ $(document).ready(function() {
   function randomFont() {
     var fontArray = ['"Montserrat", sans-serif', '"Poppins", sans-serif', '"Ubuntu", sans-serif', '"Pacifico", cursive', '"Dancing Script", cursive', '"Comfortaa", cursive', '"Permanent Marker", cursive', '"Satisfy", cursive', '"Caveat", cursive', '"Poiret One", cursive', '"Sacramento", cursive', '"Josefin Slab", serif', '"Raleway", sans-serif'];
     var randFont = fontArray[Math.floor(Math.random() * fontArray.length)];
-    $('#random-name').css('font-family', randFont);
+    return randFont;
   }
 
   //click button for random shape image
@@ -96,22 +102,53 @@ $(document).ready(function() {
 
   $('#rain-ify').click(randofy);
 
-  //clone Album
-  /*
-    setTimeout(function() {
-      var title = $('.main').clone().css('-webkit-transform', 'scale(.125, .125)');;
-      $('.album-clone').append(title);
-    }, 1000);
-  */
+
   //inital set up
   setTimeout(function() {
-    var buttonColor = $('.main').css('background');
+    var buttonColor = $('#main').css('background');
     $('button#gradient-ify').css('background', buttonColor);
     var randShape = $('#random-shape').find('img').clone();
     $('#shape-ify').append(randShape);
   }, 10);
 
 
+  const canvas = document.getElementById('canvas');
+  const ctx = canvas.getContext('2d');
+
+  var img = new Image();
+  img.addEventListener('load', function() {
+    // Draw backgruond image that was loaded
+    ctx.drawImage(img, 0, 0);
+    // Start gradient
+    var gradient = generate();
+    var angle = gradient[2]
+    // Save transparency (1)
+    ctx.save();
+    // Set transparency to 0.5 for gradient
+    ctx.globalAlpha = 0.5;
+    var grd = ctx.createLinearGradient(angle.x1, angle.x2, angle.y1, angle.y2);
+    grd.addColorStop(0, gradient[0]);
+    grd.addColorStop(1, gradient[1]);
+    // Set fill style for fillRect to the gradient we made
+    ctx.fillStyle = grd;
+    // Fill the whole image
+    ctx.fillRect(0, 0, 600, 600);
+    // Restore the transparency back to 1 so the shape isn't transparent
+    ctx.restore();
+    // New shape image to load
+    img = new Image();
+    img.addEventListener('load', function() {
+      ctx.drawImage(img, 230, 80, 150, 150);
+      ctx.fillStyle = 'white';
+      ctx.font = '30px ' + randomFont();
+      ctx.fillText(randomName(), 10, 50);
+      console.log(canvas.toDataURL())
+    })
+    img.src = randomShape();
+    img.crossOrigin = 'Anonymous';
+  }, false);
+  img.src = 'https://picsum.photos/g/600/600?random';
+  img.crossOrigin = 'Anonymous';
 
   // unsplashed sends requests to https://api.unsplash.com/
 

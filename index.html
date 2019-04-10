@@ -6,12 +6,20 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <link rel="stylesheet" type="text/css" href="style.css">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.min.js"></script>
   <link href="https://fonts.googleapis.com/css?family=Caveat|Comfortaa|Dancing+Script|Josefin+Slab|Libre+Barcode+39+Text|Montserrat|Pacifico|Permanent+Marker|Poiret+One|Poppins|Raleway|Sacramento|Satisfy|Ubuntu" rel="stylesheet">
   <title>indie-album</title>
 </head>
 
 <body>
 
+  <div style="display: none;">
+    <div style="font-family: Raleway">w</div>
+    <div style="font-family: Caveat">w</div>
+    <div style="font-family: Comfortaa">w</div>
+    <div style="font-family: Dancing Script">w</div>
+    <div style="font-family: Josefin Slab">w</div>
+  </div>
   <div class="title">
     <p class="indie-title">Indie</p>
     <p class="album-title">Album</p>
@@ -19,19 +27,6 @@
   </div>
 
   <div class="album-clone"></div>
-
-  <!-- <div class="instructions">
-    <p>Hi! Welcome to the Indie Album creator</p>
-    <p>click the buttons below to customize your indie album</p>
-    <div class="button-text">
-      <p>Choose a random gradient</p>
-      <p>Choose a random image</p>
-      <p>Choose a random geometric shape</p>
-      <p>Choose a random album name</p>
-      <p>Choose a random font</p>
-      <p>Make it rain</p>
-    </div>
-  </div> -->
 
   <div class="controls">
     <button id="gradient-ify"></button>
@@ -45,7 +40,7 @@
     <button id="font-ify">
       <p>f</p>
     </button>
-    <button id="photo-it">
+    <button onclick="genScreenshot()" id="photo-it">
       <img src="images/camera2-icon.svg">
     </button>
     <button id="randomize">
@@ -60,7 +55,8 @@
   </div>
 
   <div class="container">
-    <div class="main">
+    <!--
+    <div id="main">
       <div id="random-shape">
         <img src="images/shape-7.svg">
       </div>
@@ -68,6 +64,10 @@
         <img src="https://picsum.photos/g/600/600?random">
       </div>
       <div id="random-name">Blind Tiger</div>
+    </div>
+  -->
+    <div id="main">
+      <canvas width="600" height="600" id="canvas"></canvas>
     </div>
   </div>
 
@@ -79,8 +79,8 @@
     <img src="images/album-1.png">
     <img src="images/album-2.png">
     <img src="images/album-3.png">
+    <div class="new-example"></div>
   </div>
-
 
 
   <script src="https://code.jquery.com/jquery-3.2.1.js "></script>
